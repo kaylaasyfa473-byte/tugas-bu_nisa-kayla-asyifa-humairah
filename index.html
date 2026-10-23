@@ -183,8 +183,139 @@
 </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <form id="contactForm">
+                           <div class="mb-3">
+                                <label for="nama" class="form-label">
+                                    Nama Lengkap
+                                </label>
 
+                                <input type="text"
+                                       class="form-control"
+                                       id="nama"
+                                       name="nama"
+                                       placeholder="Masukkan nama Anda"
+                                       required>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="email" class="form-label">
+                                    Email
+                                </label>
+
+                                <input type="email"
+                                       class="form-control"
+                                       id="email"
+                                       name="email"
+                                       placeholder="nama@email.com"
+                                       required>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="pesan" class="form-label">
+                                    Pesan
+                                </label>
+
+                                <textarea class="form-control"
+                                          id="pesan"
+                                          name="pesan"
+                                          rows="4"
+                                          placeholder="Tuliskan pesan Anda"
+                                          required></textarea>
+
+                            </div>
+
+                            <button type="submit"
+                                    class="btn btn-primary w-100">
+                                Kirim Pesan
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <div class="modal fade"
+         id="successModal"
+         tabindex="-1"
+         aria-labelledby="successModalLabel"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header bg-success text-white">
+
+                    <h5 class="modal-title" id="successModalLabel">
+                        Berhasil!
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Tutup"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <p id="successMessage" class="mb-0">
+                        Formulir berhasil dikirim.
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                            class="btn btn-success"
+                            data-bs-dismiss="modal">
+                        Oke
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ <script>
+        const contactForm = document.getElementById("contactForm");
+
+        const successModal = new bootstrap.Modal(
+            document.getElementById("successModal")
+        );
+
+        const successMessage =
+            document.getElementById("successMessage");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+
+            successMessage.textContent =
+                "Terima kasih, " + nama +
+                "! Formulir berhasil dikirim.";
+
+            successModal.show();
+
+            contactForm.reset();
+
+        });
+    </script>
   
   </body>
 </html>
